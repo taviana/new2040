@@ -1,37 +1,15 @@
-# new2040
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-    </script>
-  </head>
-  <body>
-    <div class = "keys">
-    </div>
-    
-    <script>
-      var send = {
-        "token" = "cd61a19c72bc0773bc933a70edde8d1f",
-        "github" = "https://github.com/taviana/new2040"
-      }
-      
-      $(document).ready(function(){
-        $(".keys").text("ready!");
-        $(".keys").text(send);
-        console.log(send);
-        
-        $.ajax({
-          url: "http://challenge.code2040.org/api/register",
-          type: 'POST',
-          crossDomain: true,
-          dataType: 'text',
-          data: JSON.stringify(send)
-          }).done(function (data){
-            $(".container").text(data);
-            console.log(data);
-            });
-      });
-      </script>
-  </body>
-</html>
+import urllib
+import json 
+import string
+import sys
 
+token = sys.argv[1]
+githubURL = "https://github.com/taviana/new2040"
+
+data = urllib.urlencode({"token": token, "github": githubURL})
+
+url = "http://challenge.code2040.org/api/register"
+
+conn = urllib.urlopen(url, data)
+
+print conn.read()
