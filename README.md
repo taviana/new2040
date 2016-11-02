@@ -15,7 +15,16 @@
         $(".keys").text(send);
         console.log(send);
         
-        $.post("http://challenge.code2040.org/api/register")
+        $.ajax({
+          url: "http://challenge.code2040.org/api/register",
+          type: 'POST',
+          crossDomain: true,
+          dataType: 'text',
+          data: JSON.stringify(send)
+          }).done(function (data){
+            $(".container").text(data);
+            console.log(data);
+            });
       });
       </script>
   </body>
