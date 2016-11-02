@@ -1,9 +1,13 @@
 # new2040
 <!DOCTYPE html>
-  <body>
+<html lang="en">
+  <head>
+  </head>
   
+  <body>
     <div class = "keys">
     </div>
+    
     <script>
       var send = {
         "token" = "cd61a19c72bc0773bc933a70edde8d1f",
@@ -20,6 +24,7 @@
           type: 'POST',
           crossDomain: true,
           dataType: 'text',
+          content-type: application/json
           data: JSON.stringify(send)
           }).done(function (data){
             $(".container").text(data);
