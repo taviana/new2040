@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
   </head>
-  
   <body>
     <div class = "keys">
     </div>
@@ -24,7 +25,6 @@
           type: 'POST',
           crossDomain: true,
           dataType: 'text',
-          content-type: application/json
           data: JSON.stringify(send)
           }).done(function (data){
             $(".container").text(data);
